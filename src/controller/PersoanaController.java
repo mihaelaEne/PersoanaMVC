@@ -2,7 +2,10 @@ package controller;
 
 import model.Persoana;
 
+import java.awt.image.AreaAveragingScaleFilter;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class PersoanaController {
 
@@ -15,16 +18,20 @@ public class PersoanaController {
         this.load();
     }
 
+    public PersoanaController(ArrayList<Persoana>persoane){
+        this.persoane=persoane;
+    }
     public void load(){
-        Persoana p1=new Persoana("Mihaela", 123,20,"Panselelor","Romania", "romana");
-        Persoana p2=new Persoana("Maria", 456,21,"TEST Street","UK", "engleza");
-        Persoana p3=new Persoana("Alex", 789,22,"teest Street","Canada", "franceza");
-
-
-        persoane.add(p1);
-        persoane.add(p2);
-        persoane.add(p3);
-
+   try{
+       File file=new File("C:\\mycode\\OOP\\incapsularea\\Persoana\\src\\data\\persoana.txt");
+       Scanner scanner=new Scanner(file);
+       while(scanner.hasNextLine()){
+           Persoana persoana=new Persoana(scanner.nextLine());
+           this.persoane.add(persoana);
+       }
+   }catch (Exception e){
+       e.printStackTrace();
+   }
 
     }
 
@@ -45,7 +52,7 @@ public class PersoanaController {
     }
 
 
-    public Persoana findAnimalByCNP(int CNP){
+    public Persoana findByCNP(int CNP){
         for(int i=0; i<this.persoane.size(); i++) {
             if(persoane.get(i).getCNP()==CNP){
                 return persoane.get(i);
@@ -68,7 +75,7 @@ public class PersoanaController {
     }
 
     public void update(Persoana persoana){
-        Persoana deUpdatat=findAnimalByCNP(persoana.getCNP());
+        Persoana deUpdatat=findByCNP(persoana.getCNP());
 
         if(persoana.getNume()!=null){
             deUpdatat.setNume(persoana.getNume());
