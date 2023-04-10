@@ -69,7 +69,7 @@ public class ViewPersoana {
         System.out.println("Introduceti limba vorbita: ");
         String limba = scanner.nextLine();
 
-        Persoana persoana = persoanaController.findAnimalByCNP(CNP);
+        Persoana persoana = persoanaController.findByCNP(CNP);
         if (persoana == null) {
             Persoana pNou = new Persoana(nume,CNP,varsta,adresa, taraActualaInCareTraieste, limba);
             persoanaController.addPersoana(pNou);
@@ -82,7 +82,7 @@ public class ViewPersoana {
         System.out.println("Introduceti CNP-ul pers");
         int CNP = Integer.parseInt(scanner.nextLine());
 
-        Persoana persoana = persoanaController.findAnimalByCNP(CNP);
+        Persoana persoana = persoanaController.findByCNP(CNP);
         if (persoana == null) {
             System.out.println("Nu exista o pers cu CNP-ul introdus");
         } else {

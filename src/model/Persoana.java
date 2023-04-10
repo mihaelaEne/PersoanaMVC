@@ -65,6 +65,21 @@ public class Persoana {
           return CNP;
      }
 
+
+     public Persoana(String prop){
+          String [] split= prop.split(",");
+          this.nume=split[0];
+          this.CNP=Integer.parseInt(split[1]);
+          this.varsta=Integer.parseInt(split[2]);
+          this.adresa=split[3];
+          this.taraActualaInCareTraieste=split[4];
+          this.limba=split[5];
+
+
+
+
+     }
+
      public String descrierePersoana(){
           String text="";
           text+="Numele este: "+this.nume+"\n";
@@ -75,4 +90,5 @@ public class Persoana {
           text+="Limba pe care alege sa o vorbeasca in "+this.taraActualaInCareTraieste+" este: "+this.limba+"\n";
           return text;
      }
+
 }

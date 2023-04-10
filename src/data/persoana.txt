@@ -1,0 +1,5 @@
+Persoana1,1,10,adresa1,tara1,limba1
+Persoana2,2,10,adresa2,tara2,limba2
+Persoana3,3,10,adresa3,tara3,limba3
+Persoana4,4,10,adresa4,tara4,limba4
+Persoana5,5,10,adresa5,tara5,limba5
